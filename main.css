@@ -20,6 +20,7 @@ body {
   perspective: 1000px;
 }
 
+
 .night {
   position: fixed;
   left: 50%;
@@ -31,10 +32,53 @@ body {
   background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)), repeating-linear-gradient(220deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(148deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), linear-gradient(90deg, rgb(7, 107, 42), rgb(240, 240, 240));
 }
 
+.text h1{
+  position: absolute;
+  bottom: 0;
+  top: auto;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 2vmin rgba(255, 255, 255, 0.5);
+  text-align: center;
+  z-index: 100;
+  -webkit-animation: text-ans 2s linear infinite;
+          animation: text-ans 2s linear infinite;
+}
+@-webkit-keyframes text-ans {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1vmin);
+  }
+}
+@keyframes text-ans {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1vmin);
+  }
+}
+
+.text h1::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1vmin;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 1vmin;
+}
+
+
+
 .flowers {
   position: relative;
   transform: scale(0.9);
 }
+
+
 
 .flower {
   position: absolute;
@@ -43,6 +87,8 @@ body {
   z-index: 10;
   --fl-speed: 0.3s;
 }
+
+
 .flower--1 {
   -webkit-animation: moving-flower-1 4s linear infinite;
           animation: moving-flower-1 4s linear infinite;
@@ -129,6 +175,134 @@ body {
   -webkit-animation: blooming-leaf-left var(--fl-speed) 1.9s backwards;
           animation: blooming-leaf-left var(--fl-speed) 1.9s backwards;
 }
+
+@-webkit-keyframes moving-flower-1 {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+@keyframes moving-flower-1 {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+@-webkit-keyframes moving-flower-2 {
+  0%, 100% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(22deg);
+  }
+}
+@keyframes moving-flower-2 {
+  0%, 100% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(22deg);
+  }
+}
+@-webkit-keyframes moving-flower-3 {
+  0%, 100% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(-17deg);
+  }
+}
+@keyframes moving-flower-3 {
+  0%, 100% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(-17deg);
+  }
+}
+@-webkit-keyframes blooming-leaf-right {
+  0% {
+    transform-origin: bottom left;
+    transform: rotate(0deg) scale(0);
+  }
+  100% {
+    transform-origin: bottom left;
+    transform: rotate(0deg) scale(1);
+  }
+}
+@keyframes blooming-leaf-right {
+  0% {
+    transform-origin: bottom left;
+    transform: rotate(0deg) scale(0);
+  }
+  100% {
+    transform-origin: bottom left;
+    transform: rotate(0deg) scale(1);
+  }
+}
+@-webkit-keyframes blooming-leaf-left {
+  0% {
+    transform-origin: bottom right;
+    transform: rotate(0deg) scale(0);
+  }
+  100% {
+    transform-origin: bottom right;
+    transform: rotate(0deg) scale(1);
+  }
+}
+@keyframes blooming-leaf-left {
+  0% {
+    transform-origin: bottom right;
+    transform: rotate(0deg) scale(0);
+  }
+  100% {
+    transform-origin: bottom right;
+    transform: rotate(0deg) scale(1);
+  }
+}
+.flower__center {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 10vmin;
+  height: 10vmin;
+  border-radius: 50%;
+  background-color: #f76baf;
+  background-image: linear-gradient(to top, #ee5286, #ee5286);
+  transform: translate(-50%, 50%);
+  box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.5);
+  -webkit-animation: blooming-flower 2s backwards;
+          animation: blooming-flower 2s backwards;
+}
+@-webkit-keyframes blooming-flower {
+  0% {
+    transform-origin: bottom center;
+    transform: translate(-50%, 50%) scale(0);
+  }
+  100% {
+    transform-origin: bottom center;
+    transform: translate(-50%, 50%) scale(1);
+  }
+}
+@keyframes blooming-flower {
+  0% {
+    transform-origin: bottom center;
+    transform: translate(-50%, 50%) scale(0);
+  }
+  100% {
+    transform-origin: bottom center;
+    transform: translate(-50%, 50%) scale(1);
+  }
+}
+
+
+
+
+
 .flower__leafs {
   position: relative;
   -webkit-animation: blooming-flower 2s backwards;
